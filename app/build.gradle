@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId rootProject.ext.ApplicationId
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.compileSdkVersion
+        versionCode rootProject.ext.appVersion
+        versionName rootProject.ext.appVersionName
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "API_URL", rootProject.ext.Api_Url
+        buildConfigField "String", "CL_ID", rootProject.ext.cl_id
+        buildConfigField "String", "CL_SECRET", rootProject.ext.cl_secret
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.ext.libraries.androidSupport
+    implementation rootProject.ext.libraries.androidSupportV4
+    implementation rootProject.ext.libraries.androidSupportDesign
+    implementation rootProject.ext.libraries.androidSupportCardView
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation rootProject.ext.libraries.alerter
+    implementation rootProject.ext.libraries.constraintLayout
+    implementation rootProject.ext.libraries.playService
+    implementation rootProject.ext.libraries.locatinAPI
+    implementation rootProject.ext.libraries.flowGradient
+    implementation rootProject.ext.libraries.retrofit
+    implementation rootProject.ext.libraries.retrofitJackson
+    implementation rootProject.ext.libraries.okhttp
+    implementation rootProject.ext.libraries.okhttpInterceptor
+    implementation rootProject.ext.libraries.rxJava
+    implementation rootProject.ext.libraries.rxAndroid
+    implementation rootProject.ext.libraries.rxAdapter
+    implementation rootProject.ext.libraries.glidemain
+    implementation rootProject.ext.libraries.glidesupport
+}

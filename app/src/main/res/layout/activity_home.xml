@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="showGradient"
+            type="boolean" />
+
+        <variable
+            name="showProgress"
+            type="boolean" />
+
+        <variable
+            name="showLocation"
+            type="boolean" />
+
+        <variable
+            name="showEmpty"
+            type="boolean" />
+
+        <variable
+            name="handler"
+            type="com.ramapps.ramplaces.app.ui.view.IHomeView" />
+
+
+        <import type="android.view.View" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/rootConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/bottomGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".80" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/topGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".20" />
+
+        <RelativeLayout
+            android:id="@+id/flowingBack"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{showGradient ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/bottomCard"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:background="@android:color/white"
+            app:cardCornerRadius="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bottomGuideline">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/appName"
+                    style="@style/fontMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:text="@string/app_name"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="21sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="16dp"
+                    android:visibility="@{showProgress ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/appName" />
+
+                <TextView
+                    android:id="@+id/txtMessage"
+                    style="@style/fontRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="searching location"
+                    android:textColor="@color/textColorBlackVar3"
+                    android:textSize="16sp"
+                    android:visibility="@{showProgress ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/progress"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/progress"
+                    app:layout_constraintTop_toTopOf="@+id/progress" />
+
+                <TextView
+                    android:id="@+id/lblLat"
+                    style="@style/fontLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:text="Lat"
+                    android:textColor="@color/textColorBlackVar3"
+                    android:textSize="14sp"
+                    android:visibility="@{showLocation ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@+id/txtLat"
+                    app:layout_constraintStart_toStartOf="@+id/txtLat" />
+
+                <TextView
+                    android:id="@+id/lblLong"
+                    style="@style/fontLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:text="Long"
+                    android:textColor="@color/textColorBlackVar3"
+                    android:textSize="14sp"
+                    android:visibility="@{showLocation ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@+id/txtLong"
+                    app:layout_constraintStart_toStartOf="@+id/txtLong" />
+
+
+                <TextView
+                    android:id="@+id/txtLat"
+                    style="@style/fontMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:textColor="@color/textColorBlackVar2"
+                    android:textSize="15sp"
+                    android:visibility="@{showLocation ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="25.65" />
+
+                <TextView
+                    android:id="@+id/txtLong"
+                    style="@style/fontMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:padding="2dp"
+                    android:textColor="@color/textColorBlackVar2"
+                    android:textSize="15sp"
+                    android:visibility="@{showLocation ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txtLat"
+                    tools:text="25.65" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/places"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{showEmpty || showGradient ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bottomCard" />
+
+        <TextView
+            android:id="@+id/txtMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorBlackVar3"
+            android:textSize="15sp"
+            android:visibility="@{showEmpty &amp;&amp; !showGradient? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:onClick="@{onClick->handler.onRetry()}"
+            android:text="Retry"
+            android:textColor="@color/colorAccent"
+            android:visibility="@{showEmpty &amp;&amp; !showGradient? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtMsg" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

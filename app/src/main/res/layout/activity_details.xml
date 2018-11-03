@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="handler"
+            type="com.ramapps.ramplaces.app.ui.view.IDetailsView" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/rootConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:theme="@style/AppTheme.AppBarOverlay" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/topGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.35" />
+
+        <ImageView
+            android:id="@+id/topImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/placeholder_back"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintBottom_toTopOf="@+id/topGuideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <TextView
+            android:id="@+id/txttitle"
+            style="@style/fontMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="2dp"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:paddingTop="5dp"
+            android:textColor="@color/textColorBlackVar2"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topGuideline"
+            tools:text="Title" />
+
+        <TextView
+            android:id="@+id/txtDesc"
+            style="@style/fontRegular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="2dp"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:paddingTop="2dp"
+            android:textColor="@color/textColorBlackVar2"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txttitle"
+            app:layout_constraintTop_toBottomOf="@+id/txttitle"
+            tools:text="Title" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="0dp"
+            android:layout_height="1dip"
+            android:layout_marginTop="10dp"
+            android:background="@color/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDesc" />
+
+        <TextView
+            android:id="@+id/btnDirection"
+            style="@style/fontMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="?selectableItemBackground"
+            android:drawablePadding="6dp"
+            android:drawableTop="@drawable/ic_navigation_black_24dp"
+            android:gravity="center"
+            android:onClick="@{onClick->handler.startDirection()}"
+            android:text="@string/direction"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintEnd_toStartOf="@+id/btnCall"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line" />
+
+        <TextView
+            android:id="@+id/btnCall"
+            style="@style/fontMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="?selectableItemBackground"
+            android:drawablePadding="6dp"
+            android:drawableTop="@drawable/ic_call_black_24dp"
+            android:gravity="center"
+            android:onClick="@{onClick->handler.startCall()}"
+            android:text="@string/call"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintEnd_toStartOf="@+id/btnshare"
+            app:layout_constraintStart_toEndOf="@+id/btnDirection"
+            app:layout_constraintTop_toBottomOf="@+id/line" />
+
+        <TextView
+            android:id="@+id/btnshare"
+            style="@style/fontMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="?selectableItemBackground"
+            android:drawablePadding="6dp"
+            android:drawableTop="@drawable/ic_share_black_24dp"
+            android:gravity="center"
+            android:onClick="@{onClick->handler.startSharing()}"
+            android:text="@string/share"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnCall"
+            app:layout_constraintTop_toBottomOf="@+id/line" />
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="0dp"
+            android:layout_height="1dip"
+            android:layout_marginTop="10dp"
+            android:background="@color/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnDirection" />
+
+        <TextView
+            android:id="@+id/lblAddress"
+            style="@style/fontCondensed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:paddingBottom="2dp"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:paddingTop="2dp"
+            android:text="Address"
+            android:textColor="@color/textColorBlackVar3"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txttitle"
+            app:layout_constraintTop_toBottomOf="@+id/line2" />
+
+        <TextView
+            android:id="@+id/txtAddress"
+            style="@style/fontCondensed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:paddingBottom="2dp"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:paddingTop="2dp"
+            android:textColor="@color/textColorBlackVar2"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txttitle"
+            app:layout_constraintTop_toBottomOf="@+id/lblAddress"
+            tools:text="Title" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

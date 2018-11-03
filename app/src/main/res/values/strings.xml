@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">RamPlaces</string>
+    <string name="ok">Ok</string>
+    <string name="msg_enable_location">Enable Location?</string>
+    <string name="share_using">Share Using</string>
+    <string name="phone_unavailable">Phone Number unavailable</string>
+    <string name="direction">DIRECTION</string>
+    <string name="call">CALL</string>
+    <string name="share">SHARE</string>
+</resources>
