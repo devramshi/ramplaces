@@ -13,9 +13,13 @@ public class DetailsPresenter extends BasePresenter<IDetailsView> {
 
     private PlacesRepo repo;
 
+    public void setRepo(PlacesRepo repo) {
+        this.repo = repo;
+    }
+
     public void loadImages(String id) {
 
-        Disposable disposable = getRepo().loadImage(id)
+        Disposable disposable = repo.loadImage(id)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribeWith(new DisposableObserver<String>() {
@@ -38,9 +42,4 @@ public class DetailsPresenter extends BasePresenter<IDetailsView> {
 
     }
 
-    private PlacesRepo getRepo() {
-        if (repo == null)
-            repo = new PlacesRepo();
-        return repo;
-    }
 }

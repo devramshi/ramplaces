@@ -18,14 +18,21 @@ public class PlaceSearchPresenter extends BasePresenter<IHomeView> {
 
     private PlacesRepo repo;
 
+    public void setRepo(PlacesRepo rep) {
+        this.repo = rep;
+    }
+
     public void findNearestPlaces(Double lat, Double longi) {
 
-        Disposable disposable = getRepo().findNearest(lat, longi)
+        getView().showProgress();
+
+        Disposable disposable = repo.findNearest(lat, longi)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribeWith(new DisposableObserver<List<Venue>>() {
                     @Override
                     public void onNext(List<Venue> venues) {
+                        getView().hideProgress();
                         getView().showPlaces(venues);
                     }
 
@@ -36,6 +43,8 @@ public class PlaceSearchPresenter extends BasePresenter<IHomeView> {
 
                     @Override
                     public void onError(Throwable e) {
+                        e.printStackTrace();
+                        getView().hideProgress();
                         if (e instanceof RMException)
                             getView().showEmpty(e.getLocalizedMessage());
                         else
@@ -44,11 +53,5 @@ public class PlaceSearchPresenter extends BasePresenter<IHomeView> {
                 });
         addDisposable(disposable);
 
-    }
-
-    private PlacesRepo getRepo() {
-        if (repo == null)
-            repo = new PlacesRepo();
-        return repo;
     }
 }

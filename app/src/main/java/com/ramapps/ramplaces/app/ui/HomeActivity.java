@@ -32,6 +32,7 @@ import com.ramapps.ramplaces.app.common.adapter.PlaceListAdapter;
 import com.ramapps.ramplaces.app.data.SelectedPlace;
 import com.ramapps.ramplaces.app.data.response.Venue;
 import com.ramapps.ramplaces.app.presenter.PlaceSearchPresenter;
+import com.ramapps.ramplaces.app.repo.PlacesRepoImpl;
 import com.ramapps.ramplaces.app.ui.view.IHomeView;
 import com.ramapps.ramplaces.common.Callback;
 import com.ramapps.ramplaces.common.Constants;
@@ -67,9 +68,11 @@ public class HomeActivity extends BaseActivity implements IHomeView, GoogleApiCl
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         binding.setShowProgress(true);
         binding.setShowLocation(false);
+        binding.setShowGradient(true);
         presenter = new PlaceSearchPresenter();
         presenter.setContext(this);
         presenter.setView(this);
+        presenter.setRepo(new PlacesRepoImpl());
         setPresenter(presenter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         binding.places.setLayoutManager(layoutManager);
@@ -241,6 +244,8 @@ public class HomeActivity extends BaseActivity implements IHomeView, GoogleApiCl
 
     @Override
     public void showPlaces(List<Venue> places) {
+        binding.setShowGradient(false);
+        binding.setShowEmpty(false);
         adapter.setItems(places);
     }
 
@@ -248,7 +253,7 @@ public class HomeActivity extends BaseActivity implements IHomeView, GoogleApiCl
     public void showEmpty(String message) {
         binding.setShowGradient(false);
         binding.setShowEmpty(true);
-        binding.txtMessage.setText(message);
+        binding.txtMsg.setText(message);
     }
 
     @Override

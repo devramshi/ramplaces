@@ -13,6 +13,7 @@ import com.ramapps.ramplaces.app.common.BaseActivity;
 import com.ramapps.ramplaces.app.data.SelectedPlace;
 import com.ramapps.ramplaces.app.data.response.Venue;
 import com.ramapps.ramplaces.app.presenter.DetailsPresenter;
+import com.ramapps.ramplaces.app.repo.PlacesRepoImpl;
 import com.ramapps.ramplaces.app.ui.view.IDetailsView;
 import com.ramapps.ramplaces.common.Navigator;
 import com.ramapps.ramplaces.databinding.ActivityDetailsBinding;
@@ -37,6 +38,7 @@ public class DetailsActivity extends BaseActivity implements IDetailsView {
         DetailsPresenter presenter = new DetailsPresenter();
         presenter.setContext(this);
         presenter.setView(this);
+        presenter.setRepo(new PlacesRepoImpl());
         setPresenter(presenter);
         requestOptions = new RequestOptions();
         requestOptions.placeholder(R.drawable.placeholder_back);

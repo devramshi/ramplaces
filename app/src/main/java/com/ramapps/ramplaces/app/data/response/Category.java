@@ -25,6 +25,15 @@ public class Category {
     @JsonProperty("icon")
     private Icon icon;
 
+    public Category(){}
+
+    public Category(String id, String name, String shortName, Icon icon) {
+        this.id = id;
+        this.name = name;
+        this.shortName = shortName;
+        this.icon = icon;
+    }
+
     @JsonProperty("id")
     public String getId() {
         return id;

@@ -30,6 +30,18 @@ public class Venue {
     @JsonProperty("referralId")
     private String referralId;
 
+    public Venue(){
+
+    }
+
+    public Venue(String id, String name, Location location, List<Category> categories, String referralId) {
+        this.id = id;
+        this.name = name;
+        this.location = location;
+        this.categories = categories;
+        this.referralId = referralId;
+    }
+
     @JsonProperty("id")
     public String getId() {
         return id;

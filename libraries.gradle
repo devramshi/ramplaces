@@ -35,37 +35,11 @@ ext {
     mapVersion = '11.8.0'
     mapUtilsVersion = '0.5'
 
-    shimmerVersion = '0.8.0'
     gliderVersion = '4.0.0'
     glidesupport = '25.3.1'
-    duoVersion = '2.0.6'
-    zxingEmbedVersion = '3.5.0'
-    zxingCoreVersion = '3.2.0'
     alerterVersion = '2.0.0'
     multiDexVersion = '1.0.1'
-    parcelerVerison = '1.1.9'
-    datePickVersion = '3.5.1'
-    leakCanVersion = '1.5.4'
     constraintVersion = '1.1.0-beta3'
-    threetenVersion = '1.0.5'
-    firebaseVersion = '11.8.0'
-    circindicatorVerison = '1.2.2@aar'
-    parcelerAnotVerison = '1.1.9'
-    duoVersion = '2.0.6'
-    fabVersion = '1.6.4'
-    androidChartVerison = 'v3.0.3'
-    circleImageViewVerison = '2.2.0'
-    aesVersion = '0.0.1'
-    evbVersion = '3.1.1'
-    fbDbVersion = '16.0.1'
-
-    victorVersion = '1.0.1'
-    shamLandVersion = '0.1.8'
-    nipSockVersion = '2.11.+'
-    gsonVersion = '2.8.1'
-    guavaVersion = '19.0'
-    bounceVersion = '1.46'
-    commonsVersion = '1.10'
     multiDexVersion = '1.0.2'
     flowGradVersion = '1.1'
 
@@ -82,48 +56,13 @@ ext {
             rxAndroid             : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
             rxJava                : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
             rxAdapter             : "com.squareup.retrofit2:adapter-rxjava2:${rxAdapterVersion}",
-            roomMain              : "android.arch.persistence.room:runtime:${archTecversion}",
-            roomCompiler          : "android.arch.persistence.room:compiler:${archTecversion}",
-            roomRxJava            : "android.arch.persistence.room:rxjava2:${archTecversion}",
-            googlemap             : "com.google.android.gms:play-services-maps:${mapVersion}",
-            mapUtils              : "com.google.maps.android:android-maps-utils:${mapUtilsVersion}",
             locatinAPI            : "com.google.android.gms:play-services-location:${mapVersion}",
-            shimmer               : "io.supercharge:shimmerlayout:${shimmerVersion}",
             glidemain             : "com.github.bumptech.glide:glide:${gliderVersion}",
             glidesupport          : "com.android.support:support-v4:${glidesupport}",
             glideannotation       : "com.github.bumptech.glide:compiler:${gliderVersion}",
-            duoNavigation         : "nl.psdcompany:duo-navigation-drawer:${duoVersion}",
-            zxingEmbed            : "com.journeyapps:zxing-android-embedded:${zxingEmbedVersion}",
-            zxingCore             : "com.google.zxing:core:${zxingCoreVersion}",
             alerter               : "com.tapadoo.android:alerter:${alerterVersion}",
             multiDex              : "com.android.support:multidex:${multiDexVersion}",
-            parceler              : "org.parceler:parceler-api:${parcelerVerison}",
-            parcelerAnot          : "org.parceler:parceler:${parcelerAnotVerison}",
-            datePicker            : "com.wdullaer:materialdatetimepicker:${datePickVersion}",
-            leakcanary            : "com.squareup.leakcanary:leakcanary-android:${leakCanVersion}",
-            leakcanaryProd        : "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanVersion}",
             constraintLayout      : "com.android.support.constraint:constraint-layout:${constraintVersion}",
-            threetenabp           : "com.jakewharton.threetenabp:threetenabp:${threetenVersion}",
-            firebaseIndexing      : "com.google.firebase:firebase-appindexing:${firebaseVersion}",
-            fcm                   : "com.google.firebase:firebase-messaging:${firebaseVersion}",
-            fcmCode               : "com.google.firebase:firebase-core:${firebaseVersion}",
-            fab                   : "com.github.clans:fab:${fabVersion}",
-            rangeBar              : "com.appyvet:materialrangebar:${rangeBarVersion}",
-            percent               : "com.android.support:percent:${supportLibraryVersion}",
-            circleIndicator       : "me.relex:circleindicator:${circindicatorVerison}",
-            androidChart          : "com.github.PhilJay:MPAndroidChart:${androidChartVerison}",
-            circleImageView       : "de.hdodenhof:circleimageview:${circleImageViewVerison}",
-            firestore             : "com.google.firebase:firebase-firestore:${firebaseVersion}",
-            aesLib                : "com.scottyab:aescrypt:${aesVersion}",
-            eventBus              : "org.greenrobot:eventbus:${evbVersion}",
-            firbeaseDb            : "com.google.firebase:firebase-database:${firebaseVersion}",
-            victoreLib            : "com.victor:lib:${victorVersion}",
-            shamland              : "com.shamanland:fonticon:${shamLandVersion}",
-            nispok                : "com.nispok:snackbar:${nipSockVersion}",
-            gson                  : "com.google.code.gson:gson:${gsonVersion}",
-            guava                 : "com.google.guava:guava:${guavaVersion}",
-            bounce                : "org.bouncycastle:bcprov-jdk16:${bounceVersion}",
-            commons               : "commons-codec:commons-codec:${commonsVersion}",
             flowGradient          : "com.dynamitechetan.flowinggradient:flowinggradient:${flowGradVersion}",
             playService          : "com.google.android.gms:play-services:${mapVersion}"
 
