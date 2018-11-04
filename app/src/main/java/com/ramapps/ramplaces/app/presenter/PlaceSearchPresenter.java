@@ -23,9 +23,7 @@ public class PlaceSearchPresenter extends BasePresenter<IHomeView> {
     }
 
     public void findNearestPlaces(Double lat, Double longi) {
-
         getView().showProgress();
-
         Disposable disposable = repo.findNearest(lat, longi)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())

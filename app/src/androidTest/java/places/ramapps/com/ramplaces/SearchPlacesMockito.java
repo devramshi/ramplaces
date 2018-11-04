@@ -52,6 +52,7 @@ public class SearchPlacesMockito {
         presenter.findNearestPlaces(25d, 26d);
 
         InOrder inOrder = Mockito.inOrder(view);
+        inOrder.verify(view, times(1)).showProgress();
         inOrder.verify(view, times(1)).showPlaces(venueList);
     }
 
